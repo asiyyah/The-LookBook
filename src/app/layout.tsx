@@ -16,15 +16,15 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "The Lookbook — Design Portfolio",
+    default: "The Lookbook — Photography",
     template: "%s — The Lookbook",
   },
   description:
-    "A curated portfolio of design and creative work. Explore projects in brand identity, web design, mobile apps, and print.",
+    "A curated archive of photographic series — portraits, fashion editorials, street documentary, and fine art studies by a professional photographer.",
   openGraph: {
-    title: "The Lookbook — Design Portfolio",
+    title: "The Lookbook — Photography",
     description:
-      "A curated portfolio of design and creative work. Explore projects in brand identity, web design, mobile apps, and print.",
+      "A curated archive of photographic series — portraits, fashion editorials, street documentary, and fine art studies by a professional photographer.",
     type: "website",
     siteName: "The Lookbook",
   },

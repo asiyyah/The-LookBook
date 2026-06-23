@@ -1,54 +1,35 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about the creator behind The Lookbook — a designer and creative director with a passion for brand identity, editorial design, and digital products.",
+    "A photographer dedicated to capturing the quiet tension between light and shadow — from studio portraits to street documentary.",
   openGraph: {
     title: "About — The Lookbook",
     description:
-      "Learn about the creator behind The Lookbook — a designer and creative director with a passion for brand identity, editorial design, and digital products.",
+      "A photographer dedicated to capturing the quiet tension between light and shadow — from studio portraits to street documentary.",
   },
 };
 
-const skills = [
-  "Brand Identity",
-  "UI Design",
-  "Art Direction",
-  "Typography",
-  "Photography",
-  "Motion Design",
+const approach = [
+  "Studio Portraiture",
+  "Fashion Editorial",
+  "Street Documentary",
+  "Fine Art",
+  "Architecture",
+  "Still Life",
 ];
 
-const experience = [
-  {
-    year: "2023 — Present",
-    title: "Creative Director",
-    company: "Studio Collective",
-    description:
-      "Leading design strategy and creative direction for a multidisciplinary studio working with global brands.",
-  },
-  {
-    year: "2020 — 2023",
-    title: "Senior Designer",
-    company: "Form & Function",
-    description:
-      "Designed digital products and brand identities for startups and established companies across Europe.",
-  },
-  {
-    year: "2017 — 2020",
-    title: "Designer",
-    company: "Matter Studio",
-    description:
-      "Crafted editorial layouts, branding systems, and visual identities for cultural and commercial clients.",
-  },
-  {
-    year: "2015 — 2017",
-    title: "Junior Designer",
-    company: "Base Design",
-    description:
-      "Developed skills in typography, print production, and visual storytelling across a range of projects.",
-  },
+const gear = [
+  "Hasselblad H6D",
+  "Leica M10 Monochrom",
+  "Phase One IQ4 150MP",
+  "Fujifilm GFX 100S",
+  "Canon EOS R5",
+  "Nikon Z9",
+  "Leica M6 (film)",
+  "Various Zeiss, Schneider & Fujinon optics",
 ];
 
 export default function About() {
@@ -60,103 +41,96 @@ export default function About() {
             About
           </p>
           <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight leading-none max-w-4xl">
-            Creating meaning
+            Light through
             <br />
-            through design
+            <span className="italic font-light">the lens</span>
           </h1>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-20">
-            <div className="space-y-8 text-lg leading-relaxed text-muted">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mt-20">
+            <div className="space-y-8 text-lg leading-relaxed text-muted tracking-wide">
               <p>
-                I believe design is not about decoration — it is about
-                communication. Every project I take on starts with a simple
-                question: what story needs to be told?
+                I have spent the last decade learning to see — not just with my eyes but with my
+                entire body. Photography, for me, is not about the camera or the technical mastery
+                of exposure. It is about presence: the willingness to wait, to be quiet, to let
+                the world reveal itself on its own terms.
               </p>
               <p>
-                With over a decade of experience working across brand identity,
-                editorial design, and digital products, I have had the privilege
-                of collaborating with startups, cultural institutions, and
-                global brands to create work that resonates.
+                My work exists at the intersection of portraiture, fashion editorial, and
+                documentary street photography. I am drawn to contrast — light against shadow,
+                stillness against motion, the constructed against the candid. Every series I
+                produce is an attempt to hold a moment still long enough to understand it.
               </p>
               <p>
-                My approach is rooted in craft, curiosity, and collaboration. I
-                believe the best work comes from deep listening, rigorous
-                thinking, and the courage to pursue ideas that feel both true
-                and surprising.
+                I believe the most powerful images are not taken but received. The photographer&apos;s
+                job is not to impose a vision but to remain open to what is already there, waiting
+                to be seen. This philosophy guides every project I undertake, from commercial
+                editorial work to personal documentary studies.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-32 px-8 bg-foreground text-background">
+      <section className="py-32 px-8 border-t border-border">
         <div className="max-w-screen-2xl mx-auto">
-          <p className="text-xs font-medium tracking-[0.3em] uppercase text-white/50 mb-4">
-            Skills &amp; Expertise
-          </p>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-16">
-            What I do
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {skills.map((skill) => (
-              <div key={skill} className="group">
-                <p className="text-sm font-medium tracking-widest uppercase text-white/70 group-hover:text-background transition-colors duration-300">
-                  {skill}
-                </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+            <div>
+              <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted mb-6">
+                Approach
+              </p>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-10">
+                How I work
+              </h2>
+              <div className="flex flex-wrap gap-x-10 gap-y-4">
+                {approach.map((item) => (
+                  <span
+                    key={item}
+                    className="text-sm text-muted tracking-wide"
+                  >
+                    {item}
+                  </span>
+                ))}
               </div>
-            ))}
+            </div>
+            <div>
+              <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted mb-6">
+                Equipment
+              </p>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-10">
+                My tools
+              </h2>
+              <div className="flex flex-wrap gap-x-10 gap-y-4">
+                {gear.map((item) => (
+                  <span
+                    key={item}
+                    className="text-sm text-muted tracking-wide"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-32 px-8">
-        <div className="max-w-screen-2xl mx-auto">
-          <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted mb-4">
-            Experience
-          </p>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-16">
-            Career timeline
-          </h2>
-          <div className="max-w-3xl">
-            {experience.map((item, index) => (
-              <div
-                key={index}
-                className="relative pl-8 pb-16 last:pb-0 border-l border-border"
-              >
-                <div className="absolute left-[-5px] top-1 w-2.5 h-2.5 rounded-full bg-foreground" />
-                <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted">
-                  {item.year}
-                </p>
-                <h3 className="text-xl font-bold mt-2">{item.title}</h3>
-                <p className="text-sm font-medium text-muted mt-1">
-                  {item.company}
-                </p>
-                <p className="text-muted mt-3 leading-relaxed max-w-xl">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-32 px-8 bg-foreground text-background">
+      <section className="py-32 px-8 border-t border-border">
         <div className="max-w-screen-2xl mx-auto text-center">
-          <p className="text-xs font-medium tracking-[0.3em] uppercase text-white/50 mb-4">
-            Collaboration
+          <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted mb-4">
+            Connect
           </p>
           <h2 className="text-4xl sm:text-6xl font-bold tracking-tight max-w-3xl mx-auto leading-none">
-            Let&apos;s work
+            Let&apos;s create
             <br />
-            together
+            <span className="italic font-light">together</span>
           </h2>
-          <p className="text-lg sm:text-xl text-white/70 mt-8 max-w-lg mx-auto leading-relaxed">
-            Have a project in mind? I would love to hear about it. Reach out and
-            let&apos;s create something meaningful.
+          <p className="text-base sm:text-lg text-muted mt-8 max-w-lg mx-auto leading-relaxed tracking-wide">
+            Whether you have a project in mind or simply want to discuss the
+            possibilities of light, I would love to hear from you.
           </p>
           <div className="mt-10">
             <a
               href="mailto:hello@thelookbook.com"
-              className="inline-flex items-center gap-2 text-sm font-medium tracking-widest uppercase text-background border-b border-background pb-1 hover:gap-4 transition-all duration-300"
+              className="inline-flex items-center gap-2 text-sm font-medium tracking-[0.25em] uppercase border-b border-foreground pb-1 hover:gap-4 transition-all duration-300"
             >
               Get in Touch
               <span className="text-lg">&rarr;</span>

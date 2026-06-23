@@ -1,184 +1,152 @@
 import { Project } from '@/types/project'
-import { getImagesForCategory } from './imageMap'
+import { getCategoryImages } from './imageMap'
 
-export const projects: Project[] = [
+const projectData: Omit<Project, 'coverImage' | 'gallery'>[] = [
   {
     id: '1',
-    slug: 'solaris',
-    title: 'Solaris',
-    category: 'Brand',
-    imageQuery: 'luxury brand identity packaging',
+    slug: 'noir',
+    title: 'Noir',
+    category: 'Portrait',
     description:
-      'A visual identity system for a luxury wellness retreat blending light, space, and serenity.',
+      'A study in contrast — exploring the human face through dramatic studio light and deep shadow, revealing character in every frame.',
     year: '2025',
-    tools: ['Figma', 'Illustrator', 'After Effects', 'Photoshop'],
-    coverImage: getImagesForCategory('Brand').cover,
-    gallery: getImagesForCategory('Brand').gallery,
     featured: true,
-    intro:
-      'A comprehensive brand identity developed for Solaris, a high-end wellness retreat nestled in the coastal mountains.',
-    challenge:
-      'The client needed an identity that communicated luxury without feeling cold, and serenity without being generic. The challenge was to create a system that felt both premium and approachable.',
-    process:
-      'Starting with extensive moodboarding and competitive analysis, we explored the relationship between natural light and spatial design. The resulting palette draws from dawn and dusk tones, with a custom typographic system inspired by modernist signage.',
-    outcome:
-      'The final identity includes a flexible logo system, bespoke typography, packaging design, digital presence, and environmental signage. The brand launched to critical acclaim in the hospitality design press.',
+    concept:
+      'Noir began as an exploration of light and shadow on the human form. Each portrait strips away distraction, leaving only the subject and the sculptural quality of controlled light. The series references the chiaroscuro techniques of film noir and Baroque painting, translated through modern studio photography.',
+    lighting:
+      'Single-source key light positioned at extreme angles — 90 degrees and beyond — to create deep shadow falloff. A combination of hard fresnel and soft octabox modifiers produced varied edge transitions. Fill was intentionally withheld to preserve contrast, with occasional rim lighting for separation.',
+    intent:
+      'To capture the quiet power in stillness. These are not candid moments but deliberate compositions — each subject asked to sit in silence, allowing their natural presence to emerge. The result is a series that feels intimate, cinematic, and timeless.',
+    equipment: ['Hasselblad H6D', 'Zeiss Otus 85mm f/1.4', 'Profoto D2 Strobes', 'Broncolor Fresnel Spot'],
   },
   {
     id: '2',
-    slug: 'cipher',
-    title: 'Cipher',
-    category: 'Mobile',
-    imageQuery: 'mobile app UI design interface',
+    slug: 'tokyo-nights',
+    title: 'Tokyo Nights',
+    category: 'Street',
     description:
-      'A privacy-first messaging app designed for secure, intuitive communication.',
+      'Wandering the neon-lit alleyways of Shinjuku and Shibuya after midnight — a visual diary of Tokyo after dark.',
     year: '2025',
-    tools: ['Figma', 'Swift', 'Kotlin', 'Principle'],
-    coverImage: getImagesForCategory('Mobile').cover,
-    gallery: getImagesForCategory('Mobile').gallery,
+    location: 'Tokyo, Japan',
     featured: true,
-    intro:
-      'An end-to-end encrypted messaging platform that prioritises user experience without compromising security.',
-    challenge:
-      'Balancing military-grade encryption with a frictionless user experience. Most secure messaging apps feel technical and intimidating. Cipher needed to feel as natural as any messaging app while being fundamentally more private.',
-    process:
-      "We designed around core principles: zero knowledge, ephemeral interactions, and intuitive gestures. Every screen was prototyped and tested for both security clarity and ease of use. The visual language uses dark tones with subtle cryptographic motifs.",
-    outcome:
-      'Cipher achieved a 4.8 star rating across app stores, with users praising its balance of security and usability. The app was featured in privacy and design publications globally.',
+    concept:
+      'Tokyo after midnight exists in a different dimension — quieter, more surreal, wrapped in neon glow and steam rising from ramen stalls. This series documents those interstitial hours when the city belongs to the nocturnal. Each frame captures the tension between electric brightness and deep urban shadow.',
+    lighting:
+      'Available light only — neon signage, vending machines, street lamps, and the occasional taxi headlight. Shot handheld at high ISO, embracing grain as a textural element. The city\'s own lightscape became the palette, rendering alleys in magenta, cyan, and tungsten warmth.',
+    intent:
+      'To document not just what Tokyo looks like at night, but what it feels like. The series prioritises atmosphere over documentation — blur becomes energy, reflections become layers, shadows become presence. It is a love letter to the city that never sleeps.',
+    equipment: ['Leica M10 Monochrom', 'Leica Summilux 35mm f/1.4', 'Fujifilm X100V', 'Ilford Delta 3200 (film)'],
   },
   {
     id: '3',
-    slug: 'luminara',
-    title: 'Luminara',
-    category: 'Web',
-    imageQuery: 'editorial website design magazine',
+    slug: 'ethereal-skin',
+    title: 'Ethereal Skin',
+    category: 'Fashion',
     description:
-      'An immersive editorial platform for a contemporary art and culture magazine.',
+      'A fashion editorial exploring texture, fabric, and form — where clothing becomes architecture and skin becomes landscape.',
     year: '2024',
-    tools: ['Next.js', 'TypeScript', 'Figma', 'Framer Motion'],
-    coverImage: getImagesForCategory('Web').cover,
-    gallery: getImagesForCategory('Web').gallery,
     featured: true,
-    intro:
-      'A digital home for Luminara magazine — featuring curated content on contemporary art, design, and culture.',
-    challenge:
-      'Translating the tactile experience of a print magazine into a digital environment without losing editorial warmth. The design needed to feel curated, typographically rich, and effortlessly navigable.',
-    process:
-      'We studied classic editorial layouts from magazine golden ages and reimagined them for screen. Generous typography, full-bleed imagery, and a restrained colour palette let the content lead. Interactions were designed to feel like turning pages.',
-    outcome:
-      'Luminara saw a 340% increase in digital readership within three months. The platform won an Awwwards Site of the Day and was featured in communication arts.',
+    concept:
+      'Ethereal Skin bridges fashion photography and fine art. The series explores how fabric interacts with light and the human form — silk becoming liquid, organza becoming smoke, skin becoming topography. Each image is a study in texture and the poetry of draped materials.',
+    lighting:
+      'Large softboxes positioned overhead and wrapped around the subject to create wrapping, shadowless light. Diffusion materials included silk, tracing paper, and frosted acrylic. A monochromatic palette was chosen to emphasise form over colour.',
+    intent:
+      'To elevate fashion photography beyond product. These images are meant to be felt rather than read — the viewer should sense the weight of silk, the cold of metal jewellery, the warmth of skin. It is about the physicality of beauty.',
+    equipment: ['Phase One IQ4 150MP', 'Schneider Kreuznach 110mm f/2.8', 'Broncolor Siros L', 'Profoto Softbox Rectangular'],
   },
   {
     id: '4',
-    slug: 'aethel',
-    title: 'Aethel',
-    category: 'Print',
-    imageQuery: 'editorial book design typography',
+    slug: 'concrete-silence',
+    title: 'Concrete Silence',
+    category: 'Architecture',
     description:
-      'A limited-edition art book exploring the intersection of Norse mythology and modern design.',
+      'The poetry of brutalist architecture — finding grace in raw concrete, geometric repetition, and the silence of modernist forms.',
     year: '2024',
-    tools: ['InDesign', 'Photoshop', 'Illustrator', 'Procreate'],
-    coverImage: getImagesForCategory('Print').cover,
-    gallery: getImagesForCategory('Print').gallery,
+    location: 'London & Berlin',
     featured: false,
-    intro:
-      'A meticulously crafted art book that reimagines ancient Norse mythology through a contemporary design lens.',
-    challenge:
-      'Creating a physical object that felt both ancient and modern. The book needed to honour its mythological source material while feeling relevant to contemporary design audiences.',
-    process:
-      'Each spread was composed as a dialogue between old and new — runic textures paired with minimalist grids, vellum interleaves with bold typography. The binding and paper stock were selected to evoke craftsmanship.',
-    outcome:
-      'The first print run of 500 copies sold out in 48 hours. Aethel was shortlisted for the British Book Design Awards and acquired by the V&A Museum permanent collection.',
+    concept:
+      'Brutalism has long been misunderstood — dismissed as cold and inhuman. This series argues otherwise, finding warmth in texture, rhythm in repetition, and humanity in scale. Shot across London\'s Barbican and Berlin\'s modernist housing estates, Concrete Silence is a meditation on mid-century architectural ambition.',
+    lighting:
+      'Shot exclusively during the golden hour and overcast days to soften the harsh lines of concrete. Natural light becomes the active element — raking light across textured surfaces, shadows stretching through colonnades. Long exposures were used to capture the stillness of these spaces, often waiting 20+ minutes for the perfect cloud cover.',
+    intent:
+      'To change how we see brutalist architecture — not as dystopian relic but as aspirational monument. The series invites the viewer to slow down and appreciate the sculptural quality of buildings designed to last centuries. Silence is the subject.',
+    equipment: ['Fujifilm GFX 100S', 'Fujinon GF 23mm f/4', 'Fujinon GF 110mm f/2', 'Gitzo Systematic Tripod'],
   },
   {
     id: '5',
-    slug: 'nexus',
-    title: 'Nexus',
-    category: 'Brand',
-    imageQuery: 'architecture brand identity modern',
+    slug: 'golden-hour',
+    title: 'Golden Hour',
+    category: 'Portrait',
     description:
-      'Brand strategy and visual identity for a future-forward architecture firm.',
+      'Outdoor portraits captured in the fleeting warmth of golden light — where sun becomes painter and skin becomes canvas.',
     year: '2024',
-    tools: ['Figma', 'Illustrator', 'Cinema 4D', 'After Effects'],
-    coverImage: getImagesForCategory('Brand').cover,
-    gallery: getImagesForCategory('Brand').gallery,
     featured: false,
-    intro:
-      'A bold brand identity for Nexus Architecture — a practice known for parametric design and sustainable innovation.',
-    challenge:
-      "The identity needed to communicate technical precision and creative vision in equal measure. It had to appeal to both institutional clients and avant-garde collaborators.",
-    process:
-      "We built a visual system around geometric modularity, inspired by the firm's own architectural language. A custom logomark adapts across contexts, while a restrained palette of concrete, copper, and midnight establishes a serious, sophisticated tone.",
-    outcome:
-      "Nexus credited the rebrand with securing three major institutional contracts within six months. The identity was featured in Brand New and It's Nice That.",
+    concept:
+      'Golden hour is photography\'s most coveted light — a brief window when the sun transforms everything it touches. This series is an ongoing study of that light on the human face. Shot entirely in natural light during the last hour before sunset, each portrait is a collaboration between photographer, subject, and sun.',
+    lighting:
+      'Pure natural light, unmodified and unobstructed. Backlighting produced hair rim and lens flare; sidelight carved cheekbone and jaw; direct frontal light was avoided. Reflectors were used occasionally to bounce warmth into shadow, but never artificial fill.',
+    intent:
+      'To capture the unguarded moment — the softness that appears when a subject is bathed in beautiful light. These portraits are not about the photographer\'s skill but about being present at the right time and letting the light do its work.',
+    equipment: ['Canon EOS R5', 'Canon RF 50mm f/1.2L', 'Canon RF 85mm f/1.2L', '5-in-1 Reflector'],
   },
   {
     id: '6',
-    slug: 'verdant',
-    title: 'Verdant',
-    category: 'Web',
-    imageQuery: 'nature web platform design',
+    slug: 'mono-life',
+    title: 'Mono Life',
+    category: 'Documentary',
     description:
-      'A plant identification and care platform blending technology with botanical beauty.',
+      'Everyday life rendered in black and white — finding dignity, humour, and grace in the ordinary moments of urban existence.',
     year: '2023',
-    tools: ['React', 'Node.js', 'Figma', 'TensorFlow'],
-    coverImage: getImagesForCategory('Web').cover,
-    gallery: getImagesForCategory('Web').gallery,
+    location: 'Various cities',
     featured: false,
-    intro:
-      'A digital platform that uses AI to help people identify and care for plants, making botany accessible to everyone.',
-    challenge:
-      'Making a technology-driven product feel warm, organic, and human. Most plant apps lean heavily into either utilitarian design or saccharine aesthetics. Verdant needed to feel like a calm, knowledgeable companion.',
-    process:
-      'We drew inspiration from botanical gardens, herbariums, and field journals. The interface uses earthy tones, organic shapes, and generous whitespace. The AI features were designed to feel like gentle guidance rather than cold automation.',
-    outcome:
-      'Verdant grew to 200,000 users in its first year and was acquired by a major horticulture company. It holds a 4.7 star rating on both major app stores.',
+    concept:
+      'Mono Life is an ongoing documentary project spanning five cities and three years. The thread connecting every frame is the decision to see the world in monochrome — stripping colour to reveal structure, emotion, and the geometry of everyday life. From a fishmonger in Lisbon to a child playing in Mumbai monsoon, these images seek the universal in the specific.',
+    lighting:
+      'Available light in all conditions — harsh midday sun, overcast gloom, tungsten interiors, and neon night. High-contrast film stock pushed to 1600 ISO. The lack of colour forces attention to tonal range, texture, and the micro-contrasts that define good black and white photography.',
+    intent:
+      'To document life as it is — unposed, unpolished, unrepeatable. These images are not meant to be beautiful in the traditional sense but true. The series believes that black and white removes the distraction of colour and leaves only content, emotion, and humanity.',
+    equipment: ['Leica M6', 'Leica Summicron 35mm f/2', 'Ilford HP5 Plus 400', 'Kodak Tri-X 400'],
   },
   {
     id: '7',
-    slug: 'noir',
-    title: 'Noir',
-    category: 'Mobile',
-    imageQuery: 'photography mobile app dark mode',
+    slug: 'liquid-glass',
+    title: 'Liquid Glass',
+    category: 'Still Life',
     description:
-      'A curated dark-mode photography platform for emerging visual artists.',
+      'The transparency and refraction of glass explored through controlled studio light — finding infinity in a single drop.',
     year: '2023',
-    tools: ['Figma', 'Swift', 'Core ML', 'Sketch'],
-    coverImage: getImagesForCategory('Mobile').cover,
-    gallery: getImagesForCategory('Mobile').gallery,
     featured: false,
-    intro:
-      'A photography platform designed entirely in dark mode, putting visual content at the absolute centre of the experience.',
-    challenge:
-      'Most photography platforms compete for attention with cluttered interfaces and bright UI elements. Noir needed to disappear — becoming invisible so the photography could speak.',
-    process:
-      'Every design decision was made in service of the images. Dark backgrounds with subtle depth, gesture-based navigation, and zero visual noise. The UI uses micro-interactions that feel tactile and responsive without being distracting.',
-    outcome:
-      'Noir was named App of the Day in 14 countries. It built a community of over 50,000 photographers in its first six months and was praised for its respectful, minimal approach to content presentation.',
+    concept:
+      'Liquid Glass is a technical and artistic exploration of one of photography\'s most challenging subjects: transparency. Glass bends light, reflects its environment, and reveals every flaw in technique. This series embraces that challenge, creating compositions that feel suspended in time — drops frozen mid-fall, bubbles arrested in carbonated liquid, and crystal forms rendered against pure black.',
+    lighting:
+      'Backlighting through diffusion panels to create the characteristic glow of glass. Strip lights positioned at 45 degrees to catch rim highlights. A macro approach with focus stacking for sharpness at the subject plane while throwing backgrounds into complete black. Coloured gels introduced for selective refraction effects.',
+    intent:
+      'To transform the ordinary into the extraordinary. A wine glass, a perfume bottle, a droplet of water — these are not remarkable objects, but under controlled light and precise technique they become monumental. The series asks the viewer to look closer at the world around them.',
+    equipment: ['Sony A7R IV', 'Sony FE 90mm f/2.8 Macro', 'Laowa 25mm f/2.8 2.5-5x Macro', 'Profoto D2 with gels'],
   },
   {
     id: '8',
-    slug: 'prism',
-    title: 'Prism',
-    category: 'Print',
-    imageQuery: 'typographic poster screenprint design',
+    slug: 'dust-silk',
+    title: 'Dust & Silk',
+    category: 'Fashion',
     description:
-      'An experimental typographic poster series exploring colour theory and optical illusion.',
+      'An avant-garde fashion editorial where fabric, movement, and light collide — garments become sculpture, models become muses.',
     year: '2023',
-    tools: ['Illustrator', 'Photoshop', 'Screen Printing', 'Processing'],
-    coverImage: getImagesForCategory('Print').cover,
-    gallery: getImagesForCategory('Print').gallery,
     featured: false,
-    intro:
-      'A series of eight screen-printed posters that investigate the visual tension between colour theory and typographic form.',
-    challenge:
-      'Creating optical effects through pure print technique — no digital trickery. Each poster needed to work as both a standalone piece and part of a cohesive series.',
-    process:
-      'We developed a generative system in Processing to explore colour-space relationships, then translated selected outputs into screen-printed posters. Each layer was hand-mixed and printed on a vintage Heidelberg press.',
-    outcome:
-      'The series was exhibited at Design Manchester and featured in Print Magazine. A limited run of 100 numbered sets sold out within a week of release.',
+    concept:
+      'Dust & Silk pushes fashion photography into experimental territory. Garments were selected for their sculptural qualities — exaggerated silhouettes, unconventional materials, architectural construction. The shoot was conceived as a collaboration between photographer, stylist, and movement director, with each frame capturing a moment of controlled chaos.',
+    lighting:
+      'A combination of strobe and continuous LED for mixed colour temperatures. Shutter drag was employed to introduce motion blur while freezing key details with strobe. Gels in deep red and cyan created colour contrast against neutral backgrounds. Smoke machines added atmosphere and light-catching particles.',
+    intent:
+      'To break the rules of commercial fashion photography. Not every garment needs to be crisply visible; not every face needs to be perfectly lit. This series prioritises mood over catalogue, feeling over clarity. It is fashion photography as art — or perhaps art using fashion as its medium.',
+    equipment: ['Nikon Z9', 'Nikkor Z 50mm f/1.2 S', 'Nikkor Z 85mm f/1.2 S', 'Profoto B10X Plus', 'Aputure 600d Pro LED'],
   },
 ]
+
+export const projects: Project[] = projectData.map((p) => ({
+  ...p,
+  ...getCategoryImages(p.category),
+}))
 
 export function getProjects(): Project[] {
   return projects

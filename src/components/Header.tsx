@@ -12,7 +12,7 @@ export default function Header() {
       <div className="flex items-center justify-between px-8 py-6 max-w-screen-2xl mx-auto">
         <Link
           href="/"
-          className="text-sm font-medium tracking-widest uppercase text-white"
+          className="text-sm font-medium tracking-[0.25em] uppercase text-white"
         >
           The Lookbook
         </Link>
@@ -21,7 +21,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-white/70 hover:text-white transition-colors duration-300"
+              className="text-sm text-white/70 hover:text-white transition-colors duration-300 tracking-wider uppercase"
             >
               {link.label}
             </Link>

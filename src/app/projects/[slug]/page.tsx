@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import { getProjectBySlug, getProjects } from "@/lib/projects";
+import ProjectImageSection from "@/components/ProjectImageSection";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -21,7 +21,7 @@ export async function generateMetadata({
   const project = getProjectBySlug(slug);
 
   if (!project) {
-    return { title: "Project Not Found" };
+    return { title: "Series Not Found" };
   }
 
   return {
@@ -30,7 +30,6 @@ export async function generateMetadata({
     openGraph: {
       title: `${project.title} — The Lookbook`,
       description: project.description,
-      images: [{ url: project.coverImage }],
     },
   };
 }
@@ -45,115 +44,55 @@ export default async function ProjectDetail({ params }: PageProps) {
 
   return (
     <>
-      <section className="relative h-screen w-full overflow-hidden">
-        <Image
-          src={project.coverImage}
-          alt={project.title}
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 z-10 max-w-screen-2xl mx-auto px-8 pb-24">
-          <p className="text-xs font-medium tracking-[0.2em] uppercase text-white/70 mb-3">
-            {project.category} &mdash; {project.year}
-          </p>
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-none max-w-4xl">
-            {project.title}
-          </h1>
-        </div>
-      </section>
+      <ProjectImageSection project={project} />
 
-      <section className="py-32 px-8">
+      <section className="py-32 px-8 border-t border-border">
         <div className="max-w-screen-2xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
             <div>
-              <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted mb-4">
-                Overview
+              <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted mb-6">
+                The Concept
               </p>
-              <p className="text-lg leading-relaxed text-muted">
-                {project.intro}
+              <p className="text-lg leading-relaxed text-muted tracking-wide">
+                {project.concept}
               </p>
-              <div className="mt-12">
-                <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted mb-4">
-                  Tools Used
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  {project.tools.map((tool) => (
-                    <span
-                      key={tool}
-                      className="text-sm px-4 py-2 border border-border text-muted"
-                    >
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-              </div>
             </div>
-            <div className="space-y-12">
+            <div className="space-y-16">
               <div>
-                <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted mb-4">
-                  The Challenge
+                <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted mb-6">
+                  Lighting Approach
                 </p>
-                <p className="text-base leading-relaxed text-muted">
-                  {project.challenge}
+                <p className="text-base leading-relaxed text-muted tracking-wide">
+                  {project.lighting}
                 </p>
               </div>
               <div>
-                <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted mb-4">
-                  The Process
+                <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted mb-6">
+                  Creative Intent
                 </p>
-                <p className="text-base leading-relaxed text-muted">
-                  {project.process}
+                <p className="text-base leading-relaxed text-muted tracking-wide">
+                  {project.intent}
                 </p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="py-32 px-8 bg-foreground text-background">
-        <div className="max-w-screen-2xl mx-auto">
-          <p className="text-xs font-medium tracking-[0.2em] uppercase text-white/50 mb-4">
-            Gallery
-          </p>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-16">
-            Visual exploration
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {project.gallery.map((image, index) => (
-              <div
-                key={index}
-                className={`relative overflow-hidden ${
-                  index === 0 ? "md:col-span-2" : ""
-                }`}
-              >
-                <div className="relative w-full h-[500px] md:h-[600px]">
-                  <Image
-                    src={image}
-                    alt={`${project.title} gallery image ${index + 1}`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                </div>
+          {project.equipment && (
+            <div className="mt-24 pt-16 border-t border-border">
+              <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted mb-6">
+                Equipment
+              </p>
+              <div className="flex flex-wrap gap-x-12 gap-y-3">
+                {project.equipment.map((item) => (
+                  <span
+                    key={item}
+                    className="text-sm text-muted tracking-wide"
+                  >
+                    {item}
+                  </span>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-32 px-8">
-        <div className="max-w-screen-2xl mx-auto">
-          <div className="max-w-2xl">
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted mb-4">
-              Outcome
-            </p>
-            <p className="text-lg leading-relaxed text-muted">
-              {project.outcome}
-            </p>
-          </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -161,10 +100,10 @@ export default async function ProjectDetail({ params }: PageProps) {
         <div className="max-w-screen-2xl mx-auto flex justify-center">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-sm font-medium tracking-widest uppercase border-b border-foreground pb-1 hover:gap-4 transition-all duration-300"
+            className="inline-flex items-center gap-2 text-sm font-medium tracking-[0.25em] uppercase border-b border-foreground pb-1 hover:gap-4 transition-all duration-300"
           >
             <span className="text-lg">&larr;</span>
-            All Projects
+            All Series
           </Link>
         </div>
       </section>

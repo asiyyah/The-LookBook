@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { heroImage } from '@/lib/imageMap'
 
 export default function Hero() {
   return (
@@ -6,30 +7,32 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage:
-            'url(https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=1920&q=80&fm=jpg&fit=crop)',
+          backgroundImage: `url(${heroImage})`,
+          backgroundColor: '#1a1a1a',
         }}
       />
-      <div className="absolute inset-0 bg-black/40" />
-      <div className="relative z-10 flex flex-col justify-end h-full max-w-screen-2xl mx-auto px-8 pb-24">
-        <p className="text-sm font-medium tracking-[0.3em] uppercase text-white/70 mb-4">
-          Designer &amp; Creative Director
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/40" />
+      <div className="relative z-10 flex flex-col justify-end h-full max-w-screen-2xl mx-auto px-8 pb-28">
+        <p className="text-xs font-medium tracking-[0.3em] uppercase text-white/50 mb-4">
+          Photographer &amp; Visual Storyteller
         </p>
         <h1 className="text-6xl sm:text-8xl lg:text-9xl font-bold tracking-tight text-white leading-none max-w-4xl">
-          Crafting
+          Light
           <br />
-          visual stories
+          <span className="italic font-light">through</span>
+          <br />
+          the lens
         </h1>
-        <p className="text-lg sm:text-xl text-white/70 mt-6 max-w-xl leading-relaxed">
-          I design immersive brand experiences, editorial platforms, and
-          digital products that feel intentional.
+        <p className="text-base sm:text-lg text-white/60 mt-6 max-w-lg leading-relaxed tracking-wide">
+          Capturing the quiet tension between shadow and illumination — 
+          portraits, streets, and stories told in silver and grain.
         </p>
         <div className="mt-10">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-sm font-medium tracking-widest uppercase text-white border-b border-white pb-1 hover:gap-4 transition-all duration-300"
+            className="inline-flex items-center gap-2 text-sm font-medium tracking-[0.25em] uppercase text-white border-b border-white/40 pb-1 hover:border-white/80 hover:gap-4 transition-all duration-500"
           >
-            View Projects
+            View Series
             <span className="text-lg">&rarr;</span>
           </Link>
         </div>

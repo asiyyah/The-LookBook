@@ -1,9 +1,9 @@
 import Link from 'next/link'
 
 const socialLinks = [
-  { href: '#', label: 'Twitter' },
   { href: '#', label: 'Instagram' },
-  { href: '#', label: 'Dribbble' },
+  { href: '#', label: 'X' },
+  { href: '#', label: 'Behance' },
   { href: '#', label: 'LinkedIn' },
 ]
 
@@ -15,12 +15,12 @@ export default function Footer() {
           <div>
             <Link
               href="/"
-              className="text-lg font-medium tracking-widest uppercase"
+              className="text-sm font-medium tracking-[0.25em] uppercase"
             >
               The Lookbook
             </Link>
             <p className="text-muted text-sm mt-3 max-w-xs leading-relaxed">
-              A curated portfolio of design and creative work.
+              A curated archive of photographic series and visual studies.
             </p>
           </div>
           <div className="flex flex-col items-start md:items-end gap-4">
@@ -29,15 +29,14 @@ export default function Footer() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-sm text-foreground/50 hover:text-foreground transition-colors duration-300"
+                  className="text-xs text-foreground/50 hover:text-foreground transition-colors duration-300 tracking-wider uppercase"
                 >
                   {link.label}
                 </a>
               ))}
             </div>
             <p className="text-xs text-muted">
-              &copy; {new Date().getFullYear()} The Lookbook. All rights
-              reserved.
+              &copy; {new Date().getFullYear()} The Lookbook. All rights reserved.
             </p>
           </div>
         </div>
